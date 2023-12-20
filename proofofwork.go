@@ -3,17 +3,17 @@ package main
 import (
 	"bytes"
 	"crypto/sha256"
-	"encoding/hex"
 	"fmt"
 	"math"
 	"math/big"
-	"strconv"
+)
+
+var (
+	maxNonce = math.MaxInt64
 )
 
 const (
 	targetBits = 24
-	maxNonce   = math.MaxInt64
-	// maxNonce = 5
 )
 
 type ProofOfWork struct {
@@ -70,11 +70,4 @@ func (pow *ProofOfWork) Validate() bool {
 	hashInt.SetBytes(hash[:])
 	isValid := hashInt.Cmp(pow.target) == -1
 	return isValid
-}
-
-// code by Shon
-func IntToHex(num int64) []byte {
-	hexstr := strconv.FormatInt(num, 16)
-	byteArr, _ := hex.DecodeString(hexstr)
-	return byteArr
 }
