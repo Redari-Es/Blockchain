@@ -1,6 +1,7 @@
 package main
 
 func main() {
+	// Part 2
 	// bc := NewBlockchain()
 	// bc.AddBlock("Send 1 BTC to Shon")
 	// bc.AddBlock("Send 2 more BTC to Shon")
@@ -14,8 +15,14 @@ func main() {
 	//
 	// }
 
+	/* Part 3
 	bc := NewBlockchain()
 	defer bc.db.Close()
 	cli := CLI{bc}
+	cli.Run()
+	*/
+
+	// Part 4
+	cli := CLI{}
 	cli.Run()
 }
