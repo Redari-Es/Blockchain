@@ -137,7 +137,7 @@ func (u UTXOSet) Update(block *Block) {
 		for _, tx := range block.Transactions {
 			if tx.IsCoinbase() == false {
 				for _, vin := range tx.Vin {
-					updatedOuts := TXOutput{}
+					updatedOuts := TXOutputs{}
 					outsBytes := b.Get(vin.Txid)
 					outs := DeserializeOutputs(outsBytes)
 					for outIdx, out := range outs.Outputs {
@@ -158,7 +158,7 @@ func (u UTXOSet) Update(block *Block) {
 					}
 				}
 			}
-			newOutputs := TXOutput{}
+			newOutputs := TXOutputs{}
 			for _, out := range tx.Vout {
 				newOutputs.Outputs = append(newOutputs.Outputs, out)
 			}

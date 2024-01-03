@@ -5,12 +5,12 @@ import (
 	"log"
 )
 
-func (cli *CLI) listAddresses() {
-	wallets, err := NewWallets()
+func (cli *CLI) listAddresses(nodeID string) {
+	wallets, err := NewWallets(nodeID)
 	if err != nil {
 		log.Panic(err)
 	}
-	addresses := wallets.GetAddress()
+	addresses := wallets.GetAddresses()
 	for _, address := range addresses {
 		fmt.Println(address)
 	}

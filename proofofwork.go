@@ -13,7 +13,8 @@ var (
 )
 
 const (
-	targetBits = 24
+	// targetBits = 24
+	targetBits = 16
 )
 
 type ProofOfWork struct {

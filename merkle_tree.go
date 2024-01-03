@@ -5,14 +5,14 @@ import "crypto/sha256"
 // 定义树
 // MerkleTree represent a Merkle tree
 type MerkleTree struct {
-	RootNode *MerkleTree
+	RootNode *MerkleNode
 }
 
 // 定义叶子节点
 // MerkleTree represent a Merkle tree node
 type MerkleNode struct {
-	Left  *MerkleTree
-	Right *MerkleTree
+	Left  *MerkleNode
+	Right *MerkleNode
 	Data  []byte
 }
 
